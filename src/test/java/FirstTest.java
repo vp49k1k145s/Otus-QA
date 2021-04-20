@@ -3,7 +3,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.*;
+import org.junit.AfterClass;
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -13,22 +16,24 @@ public class FirstTest {
     private static ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
 
     @BeforeClass
-    public static void setTestEnvironment() {
+    public static void setTest() {
         WebDriverManager.chromedriver().setup();
         chromeDriver = new ChromeDriver();
-        logger.debug("Подключен Chrome-драйвер");
+        logger.info("Создаем Chrome-драйвер");
     }
 
     @Test
-    public void openPage1() {
+    public void openPage() {
+        String title = chromeDriver.getTitle();
         chromeDriver.get(cfg.url());
-        logger.debug("Открыли URI в Chrome-браузере");
-        logger.debug("Получили <title>: " + chromeDriver.getTitle());
+        logger.info("Открыли url " + cfg.url());
+        Assert.assertEquals("Онлайн‑курсы для профессионалов, дистанционное обучение современным профессиям", chromeDriver.getTitle());
+        logger.info("title страницы "+ chromeDriver.getTitle());
     }
 
     @AfterClass
-    public static void clearTestEnvironment() {
-        logger.debug("Отключаем Chrome-драйвер");
+    public static void clearTest() {
+        logger.info("Закрываем Chrome-драйвер");
         if (chromeDriver != null)
             chromeDriver.quit();
     }
