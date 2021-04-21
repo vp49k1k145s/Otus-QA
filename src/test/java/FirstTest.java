@@ -24,11 +24,10 @@ public class FirstTest {
 
     @Test
     public void openPage() {
-        String title = chromeDriver.getTitle();
         chromeDriver.get(cfg.url());
         logger.info("Открыли url {}", cfg.url());
-        Assert.assertEquals("Онлайн‑курсы для профессионалов, дистанционное обучение современным профессиям", title);
-        logger.info("title страницы {}",title);
+        Assert.assertEquals("Онлайн‑курсы для профессионалов, дистанционное обучение современным профессиям", chromeDriver.getTitle());
+        logger.info("title страницы {}",chromeDriver.getTitle());
     }
 
     @AfterClass
