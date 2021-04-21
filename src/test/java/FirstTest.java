@@ -27,7 +27,7 @@ public class FirstTest {
         String title = chromeDriver.getTitle();
         chromeDriver.get(cfg.url());
         logger.info("Открыли url {}", cfg.url());
-        Assert.assertEquals("Онлайн‑курсы для профессионалов, дистанционное обучение современным профессиям", chromeDriver.getTitle());
+        Assert.assertEquals("Онлайн‑курсы для профессионалов, дистанционное обучение современным профессиям", title);
         logger.info("title страницы {}",title);
     }
 
