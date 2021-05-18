@@ -53,6 +53,18 @@ public class HomeWorkTwo {
     }
 
     @Test
+    public void twoTest() {
+        String url = "https://msk.tele2.ru/shop/number";
+        chromeDriver.get(url);
+        logger.info("Открыли url {}", url);
+        chromeDriver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+        chromeDriver.findElement(By.cssSelector("#searchNumber"))
+                .sendKeys("97");
+        ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"root\"]/div/div[1]/div/div/div/div/div[2]/div[1]/div/div/div/div[3]/span/div"));
+        logger.info("Телефонные номера отображены на странице");
+    }
+
+    @Test
     public void thirdTest() {
         String text = "Программу курса в сжатом виде можно увидеть на странице курса после блока с преподавателями. Подробную программу курса можно скачать кликнув на “Скачать подробную программу курса”";
         chromeDriver.get(cfg.url());
