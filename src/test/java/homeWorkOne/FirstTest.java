@@ -1,3 +1,5 @@
+package homeWorkOne;
+
 import config.ServerConfig;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.aeonbits.owner.ConfigFactory;
