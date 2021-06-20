@@ -9,4 +9,6 @@ public interface ServerConfig extends Config {
     @Key("url")
     String url();
 
+    @Key("url1")
+    String url1();
 }
