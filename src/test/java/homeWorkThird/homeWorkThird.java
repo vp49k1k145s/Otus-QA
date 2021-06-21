@@ -54,7 +54,7 @@ public class homeWorkThird {
         logger.info("Открыт раздел Электроника");
         chromeDriver.findElement(By.xpath("//a[starts-with(@href, '/catalog--smartfony/')]"))
                 .click();
-        logger.info("Открыт раздел Мобильные телефоны");
+        logger.info("Открыт раздел Смартфоны");
 
         WebElement element = chromeDriver.findElement(By.xpath("//input[@name='Производитель Xiaomi']"));
         Actions actions = new Actions(chromeDriver);
