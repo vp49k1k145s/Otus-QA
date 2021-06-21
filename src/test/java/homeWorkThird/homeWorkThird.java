@@ -52,7 +52,7 @@ public class homeWorkThird {
         chromeDriver.findElement(By.xpath("//a[starts-with(@href,'/catalog--elektronika/')]"))
                 .click();
         logger.info("Открыт раздел Электроника");
-        chromeDriver.findElement(By.xpath("//a[starts-with(@href, '/catalog--mobilnye-telefony/')]"))
+        chromeDriver.findElement(By.xpath("//a[starts-with(@href, '/catalog--smartfony/')]"))
                 .click();
         logger.info("Открыт раздел Мобильные телефоны");
 
@@ -70,22 +70,22 @@ public class homeWorkThird {
         chromeDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         chromeDriver.navigate().refresh();
 
-        String firstSamsungName = chromeDriver.findElement(By.ByXPath.xpath("//a[not(contains(@href,'premiumOffers')) and not(contains(@rel,'nofollow noopener')) and contains(.,'Смартфон Samsung')]/span")).getText();
+        String firstSamsungName = chromeDriver.findElement(By.ByXPath.xpath("//a[not(contains(@href,'premiumOffers')) and not(contains(@rel,'nofollow noopener')) and contains(.,'Samsung')]/span")).getText();
         String[] shortNames = firstSamsungName.split(",");
         String messageExpectedSamsung = "Товар " + shortNames[0] + " добавлен к сравнению";
         logger.info(messageExpectedSamsung);
 
-        String firstXiaomiName = chromeDriver.findElement(By.ByXPath.xpath("//a[not(contains(@href,'premiumOffers')) and not(contains(@rel,'nofollow noopener')) and contains(.,'Смартфон Xiaomi')]/span")).getText();
+        String firstXiaomiName = chromeDriver.findElement(By.ByXPath.xpath("//a[not(contains(@href,'premiumOffers')) and not(contains(@rel,'nofollow noopener')) and contains(.,'Xiaomi')]/span")).getText();
         String[] shortXiNames = firstXiaomiName.split(",");
         String messageExpectedXiaomi = "Товар " + shortXiNames[0] + " добавлен к сравнению";
         logger.info(messageExpectedXiaomi);
 
-        WebElement addFirstSamsung = chromeDriver.findElement(By.ByXPath.xpath("//article[contains(.,'Смартфон Samsung')and contains(@data-autotest-id,'product-snippet')]/descendant::div[contains(@aria-label,'сравнению')]"));
+        WebElement addFirstSamsung = chromeDriver.findElement(By.ByXPath.xpath("//article[contains(.,'Samsung')and contains(@data-autotest-id,'product-snippet')]/descendant::div[contains(@aria-label,'сравнению')]"));
         addFirstSamsung.click();
         String s = wait.until(ExpectedConditions.visibilityOfElementLocated(By.ByXPath.xpath("//div[contains(text(),'добавлен к сравнению')]"))).getText();
         Assert.assertEquals(messageExpectedSamsung, s);
 
-        WebElement addFirstXiaomi = chromeDriver.findElement(By.ByXPath.xpath("//article[contains(.,'Смартфон Xiaomi') and contains(@data-autotest-id,'product-snippet')]/descendant::div[contains(@aria-label,'сравнению')]"));
+        WebElement addFirstXiaomi = chromeDriver.findElement(By.ByXPath.xpath("//article[contains(.,'Xiaomi') and contains(@data-autotest-id,'product-snippet')]/descendant::div[contains(@aria-label,'сравнению')]"));
         addFirstXiaomi.click();
         s = wait.until(ExpectedConditions.visibilityOfElementLocated(By.ByXPath.xpath("//div[contains(text(),'добавлен к сравнению')]"))).getText();
         Assert.assertEquals(messageExpectedXiaomi, s);
