@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class homeWorkThird {
-    private static Logger logger = LogManager.getLogger(HomeWorkTwo.class);
+    private static Logger logger = LogManager.getLogger(homeWorkThird.class);
     private static ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
     private static WebDriver chromeDriver;
 
