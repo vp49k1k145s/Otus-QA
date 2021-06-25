@@ -31,6 +31,7 @@ public class HomeWorkThird {
         WebDriverManager.chromedriver().setup();
         chromeDriver = new ChromeDriver();
         logger.info("Создаем Chrome-драйвер");
+        chromeDriver.manage().window().maximize();
     }
 
     @AfterClass
@@ -44,7 +45,6 @@ public class HomeWorkThird {
     public void marketTest() {
         chromeDriver.get(cfg.url1());
         logger.info("Открыли url {}", cfg.url1());
-        chromeDriver.manage().window().maximize();
 
         WebDriverWait wait = new WebDriverWait(chromeDriver, 10);
         chromeDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
