@@ -1,7 +1,6 @@
 package homeWorkThird;
 
 import config.ServerConfig;
-import homeWorkTwo.HomeWorkTwo;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.logging.log4j.LogManager;
@@ -22,8 +21,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class homeWorkThird {
-    private static Logger logger = LogManager.getLogger(homeWorkThird.class);
+public class HomeWorkThird {
+    private static Logger logger = LogManager.getLogger(HomeWorkThird.class);
     private static ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
     private static WebDriver chromeDriver;
 
@@ -56,18 +55,17 @@ public class homeWorkThird {
                 .click();
         logger.info("Открыт раздел Смартфоны");
 
-        WebElement element = chromeDriver.findElement(By.xpath("//input[@name='Производитель Xiaomi']"));
+        WebElement manufacturerXiaomi = chromeDriver.findElement(By.xpath("//input[@name='Производитель Xiaomi']"));
         Actions actions = new Actions(chromeDriver);
-        actions.moveToElement(element).click().perform();
+        actions.moveToElement(manufacturerXiaomi).click().perform();
 
-        WebElement element2 = chromeDriver.findElement(By.xpath("//input[@name='Производитель Samsung']"));
+        WebElement manufacturerSamsung = chromeDriver.findElement(By.xpath("//input[@name='Производитель Samsung']"));
         Actions actions2 = new Actions(chromeDriver);
-        actions2.moveToElement(element2).click().perform();
+        actions2.moveToElement(manufacturerSamsung).click().perform();
         ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[3]/div[3]/div[4]/div/div[1]/div/div[1]/div[2]/div/div"));
 
         chromeDriver.findElement(By.xpath("//button[@data-autotest-id='dprice']")).click();
         logger.info("Выполнение сортировки по цене");
-        chromeDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         chromeDriver.navigate().refresh();
 
         String firstSamsungName = chromeDriver.findElement(By.xpath("//a[not(contains(@href,'premiumOffers')) and not(contains(@rel,'nofollow noopener')) and contains(.,'Samsung')]/span")).getText();
