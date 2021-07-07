@@ -55,4 +55,21 @@ class CalculatorApplicationTests {
 
         assert calculator.division(first, second).equals(expected);
     }
+    @Test
+    @DisplayName("test exponentiation")
+    void test5() {
+        Integer first = 2;
+        Integer second = 2;
+        Integer expected = 4;
+
+        assert calculator.exponentiation((double) first, (double)second).equals((double)expected);
+    }
+    @Test
+    @DisplayName("test square")
+    void test6() {
+        Integer first = 16;
+        Integer expected = 4;
+
+        assert calculator.square((double) first).equals((double)expected);
+    }
 }

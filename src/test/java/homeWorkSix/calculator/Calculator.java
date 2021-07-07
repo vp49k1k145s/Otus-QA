@@ -20,4 +20,12 @@ public class Calculator {
 //        return 0;
         return val1 / val2;
     }
+    public Double exponentiation(Double val1, Double val2) {
+//        return 0;
+        return  Math.pow(val1,val2)  ;
+    }
+
+    public  Double square(Double val1){
+        return Math.sqrt(val1);
+    }
 }
