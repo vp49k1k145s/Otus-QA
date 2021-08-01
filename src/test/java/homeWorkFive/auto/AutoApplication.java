@@ -1,4 +1,5 @@
 package homeWorkFive.auto;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -29,11 +30,9 @@ public class AutoApplication {
         Car carForFamilyNew = context.getBean("classicCar", Car.class);
         Car carForYoungNew = context.getBean("sportCar", Car.class);
         Car carForExperimentsNew = context.getBean("experimentalCar", Car.class);
-        Car carForFlyingNew = context.getBean("flyingCar", Car.class);
 
         System.out.println(carForFamilyNew.readyForSale());
         System.out.println(carForYoungNew.readyForSale());
         System.out.println(carForExperimentsNew.readyForSale());
-        System.out.println(carForFlyingNew.readyForSale());
     }
 }

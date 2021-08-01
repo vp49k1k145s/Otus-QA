@@ -1,7 +1,5 @@
-package homeWorkFive;
+package homeWorkFive.auto;
 
-import homeWorkFive.auto.Car;
-import homeWorkFive.auto.SpringConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -14,8 +12,8 @@ class AutoApplicationTests {
 
     @Test
     void contextLoads() {
-        Car flyingCar = (Car) context.getBean("flyingCar");
+        Car flyingCar = (Car) context.getBean("experimentalCar");
         String result = flyingCar.readyForSale();
-        Assert.isTrue(result.equals("Car Ready in: AirCar"),"Expected configuration -> " + result);
+        Assert.isTrue(result.equals("Car Ready in: StrangeCar"), "Expected configuration -> " + result);
     }
 }

@@ -23,11 +23,6 @@ public class SpringConfig {
         return new ExperimentalConfiguration();
     }
 
-    @Bean
-    public FlyingConfiguration flyingConfiguration() {
-        return new FlyingConfiguration();
-    }
-
     @Bean Car classicCar() {
         return new Car(classicConfiguration());
     }
@@ -38,9 +33,5 @@ public class SpringConfig {
 
     @Bean Car experimentalCar() {
         return  new Car(experimentalConfiguration());
-    }
-
-    @Bean Car flyingCar() {
-        return  new Car(flyingConfiguration());
     }
 }
