@@ -23,6 +23,7 @@ public class HomeWorkTwo {
     private static ServerConfig cfg = ConfigFactory.create(ServerConfig.class);
     private static WebDriver chromeDriver;
 
+
     @BeforeClass
     public static void setTest() {
         WebDriverManager.chromedriver().setup();
