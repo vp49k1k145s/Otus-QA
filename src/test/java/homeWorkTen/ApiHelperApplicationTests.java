@@ -1,17 +1,19 @@
 package homeWorkTen;
 
+import homeWorkTen.pojo.Login;
+import homeWorkTen.pojo.Register;
 import homeWorkTen.pojo.Resource;
 import homeWorkTen.pojo.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import retrofit2.Response;
-
 import java.io.IOException;
 
 import static org.springframework.util.Assert.isTrue;
 
 @SpringBootTest
 class ApiHelperApplicationTests {
+    private Register register = new Register("eve.holt@reqres.in", "cityslicka");
 
     @Test
     public void getUserTest() throws IOException {
@@ -32,5 +34,14 @@ class ApiHelperApplicationTests {
         isTrue(response.body().getData().getColor().equals("#C74375"), "Color найден");
         isTrue(response.body().getData().getName().equals("fuchsia rose"), "Name найдено");
         isTrue(response.body().getData().getPantoneValue().equals("17-2031"), "PantoneValue найден");
+    }
+
+    @Test
+    public void loginTest() throws IOException {
+        Response<Login> response;
+        APIInterface client = APIClientHelper.getClient().create(APIInterface.class);
+        response = client.login(register).execute();
+
+        isTrue(response.isSuccessful(), "Status 200");
     }
 }
