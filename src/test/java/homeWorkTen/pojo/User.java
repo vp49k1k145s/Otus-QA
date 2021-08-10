@@ -6,8 +6,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Account {
-
+public class User {
+    @Override
+    public String toString() {
+        return "User{" +
+                "data=" + data +
+                '}';
+    }
     @JsonProperty("data")
     private Data data;
 
@@ -15,10 +20,5 @@ public class Account {
         return data;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "data=" + data +
-                '}';
-    }
+
 }
