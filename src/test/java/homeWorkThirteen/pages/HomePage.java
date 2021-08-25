@@ -10,10 +10,6 @@ import java.io.ByteArrayInputStream;
 
 import static java.lang.String.format;
 
-
-/**
- * Sample page
- */
 public class HomePage extends Page {
 
     @FindBy(css = ".header-search-input")
