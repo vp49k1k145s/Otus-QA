@@ -172,7 +172,7 @@
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
-            <version>${allure.version}</version>
+            <version>${allure-junit5.version}</version>
         </dependency>
 
     </dependencies>
